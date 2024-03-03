@@ -2,6 +2,7 @@
 
 const postParent = document.getElementById('cardContainer')
 const readTextParent = document.getElementById('readTextContainer')
+const latestPostContainer = document.getElementById('latestPostContainer')
 let count = 0
 
 // fetch card from api
