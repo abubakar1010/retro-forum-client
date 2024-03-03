@@ -88,7 +88,9 @@ const displayCards = async() => {
 
         massage.addEventListener('click',function (e) {
             const viewCounts = e.target.parentNode.parentNode.children[0].children[1].children[1].innerText
-            displayReadItem(viewCounts)
+            const readTitle = e.target.parentNode.parentNode.parentNode.children[1].innerText
+            // console.log(readTitle);
+            displayReadItem(viewCounts,readTitle)
      })
     })
 }
@@ -97,16 +99,16 @@ displayCards()
 
 // display read item 
 
-const displayReadItem = (element) => {
+const displayReadItem = (element,readTitle) => {
     const read = document.createElement('div')
 
 
     read.innerHTML = `
-    <div class="flex justify-between bg-white my-6 p-4 rounded-md">
-                <h2 class="text-[#12132D] text-xl font-medium">Title</h2>
-                <div class="flex gap-3">
+    <div class="flex justify-between bg-white my-6 py-4 px-6 rounded-md">
+                <h2 class="text-[#12132D] text-xl font-medium">${readTitle}</h2>
+                <div class="flex gap-3 items-center">
                 <img src="assets/images/eye.svg" alt="">
-                    <h2 class="text-[#12132D99] text-xl">Mark as read <span>(${element})</span></h2>
+                    <h2 class="text-[#12132D99] text-xl">(${element})</h2>
                         
                 </div>
             </div>
@@ -191,8 +193,7 @@ const displayDataByCategory = async (post,text) => {
 
     postParent.innerHTML = ""
     if(!text || text === "" || post.length === 0){
-        error.innerHTML = ""
-        error.setAttribute('class', "")
+        error.classList.add('hidden')
         
         setTimeout(() => {
         
@@ -248,6 +249,24 @@ const displayDataByCategory = async (post,text) => {
         postParent.appendChild(postData)
 
     });
+
+    // show read item 
+
+    const massages = document.querySelectorAll('#markAsRead')
+    error.classList.remove('hidden')
+
+     massages.forEach( (massage) => {
+
+
+        massage.addEventListener('click',function (e) {
+            const viewCounts = e.target.parentNode.parentNode.children[0].children[1].children[1].innerText
+            const readTitle = e.target.parentNode.parentNode.parentNode.children[1].innerText
+            // console.log(readTitle);
+            displayReadItem(viewCounts,readTitle)
+
+     })
+    })
+
     postParent.classList.add('hidden')
     setTimeout(() => {
         
