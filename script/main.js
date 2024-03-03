@@ -40,9 +40,9 @@ const displayCards = async() => {
 
             post.innerHTML = `
             <div class="flex flex-col gap-8 px-7 bg-[#F3F3F5] rounded-lg shadow md:flex-row min-h-[260px] max-w-[820px] ">
-            <div class=" pt-10 flex justify-center relative">
+            <div class=" pt-10 relative w-fit ">
             <img class="md:h-14 md:w-16 w-20 h-20 rounded-full" src="${element.image}" alt="">
-            <p id="activeStatus" class=" w-4 h-4 rounded-full ${element.isActive? 'bg-green-500' : 'bg-red-500'}  absolute top-10 left-10 "></p>
+            <p id="activeStatus" class=" w-4 h-4 rounded-full ${element.isActive? 'bg-green-500' : 'bg-red-500'}  absolute top-10 md:left-10 left-14"></p>
             </div>
         <div class="flex flex-col justify-between w-full p-4 leading-normal">
             <div class="flex items-center gap-4 text-[#12132DCC] pt-6 text-xl pb-4">
@@ -217,8 +217,9 @@ const displayDataByCategory = async (post,text) => {
 
         postData.innerHTML = `
         <div class="flex flex-col gap-8 px-7 bg-[#F3F3F5] rounded-lg shadow md:flex-row min-h-[260px] max-w-[820px] ">
-            <div class=" pt-10 flex justify-center">
+            <div class=" pt-10  relative ">
             <img class="md:h-14 md:w-16 w-20 h-20 rounded-full" src="${element.image}" alt="">
+            <p id="activeStatus" class=" w-4 h-4 rounded-full ${element.isActive? 'bg-green-500' : 'bg-red-500'}  absolute top-10 md:left-10 left-14"></p>
             </div>
         <div class="flex flex-col justify-between w-full p-4 leading-normal">
             <div class="flex items-center gap-4 text-[#12132DCC] pt-6 text-xl pb-4">
