@@ -36,10 +36,13 @@ const displayCards = async() => {
             const post = document.createElement('div')
             // console.log(post);
 
+            
+
             post.innerHTML = `
             <div class="flex flex-col gap-8 px-7 bg-[#F3F3F5] rounded-lg shadow md:flex-row min-h-[260px] max-w-[820px] ">
-            <div class=" pt-10 flex justify-center">
+            <div class=" pt-10 flex justify-center relative">
             <img class="md:h-14 md:w-16 w-20 h-20 rounded-full" src="${element.image}" alt="">
+            <p id="activeStatus" class=" w-4 h-4 rounded-full ${element.isActive? 'bg-green-500' : 'bg-red-500'}  absolute top-10 left-10 "></p>
             </div>
         <div class="flex flex-col justify-between w-full p-4 leading-normal">
             <div class="flex items-center gap-4 text-[#12132DCC] pt-6 text-xl pb-4">
@@ -73,6 +76,9 @@ const displayCards = async() => {
     </div>
 
     `
+
+    
+
    setTimeout(() => {
         
          spinner.classList.add('hidden')
@@ -108,7 +114,7 @@ const displayReadItem = (element,readTitle) => {
                 <h2 class="text-[#12132D] text-xl font-medium">${readTitle}</h2>
                 <div class="flex gap-3 items-center">
                 <img src="assets/images/eye.svg" alt="">
-                    <h2 class="text-[#12132D99] text-xl">(${element})</h2>
+                    <h2 class="text-[#12132D99] text-xl">${element}</h2>
                         
                 </div>
             </div>
@@ -150,7 +156,7 @@ const displayLatestPost = async () => {
                                 <div>
                                     <div class="flex gap-2">
                                         <img src="assets/images/date.svg" alt="" class="">
-                                        <p class="text-[#12132D99] text-lg">${element.author.posted_date}</p>
+                                        <p class="text-[#12132D99] text-lg">${element.author.posted_date? element.author.posted_date : 'No publish date'}</p>
                                     </div>
                                     <h5 class="text-xl font-semibold tracking-tight text-[#12132D] mt-4">${element.title}</h5>
                                 </div>
@@ -162,7 +168,7 @@ const displayLatestPost = async () => {
                                     </div>
                                     <div>
                                         <h2 class="text-[#12132D] font-semibold">${element.author.name}</h2>
-                                        <p class="text-[#12132D99] font-medium">${element.author.designation}</p>
+                                        <p class="text-[#12132D99] font-medium">${element.author.designation? element.author.designation : 'Unknown'}</p>
                                     </div>
                                 
                                 </div>
