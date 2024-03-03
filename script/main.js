@@ -31,8 +31,8 @@ const displayCards = async() => {
 
             post.innerHTML = `
             <div class="flex flex-col gap-8 px-7 bg-[#F3F3F5] rounded-lg shadow md:flex-row min-h-[260px] max-w-[820px] ">
-            <div class=" pt-10 ">
-            <img class="h-14 w-16 rounded-full" src="${element.image}" alt="">
+            <div class=" pt-10 flex justify-center">
+            <img class="lg:h-14 lg:w-16 w-20 h-20 rounded-full" src="${element.image}" alt="">
             </div>
         <div class="flex flex-col justify-between w-full p-4 leading-normal">
             <div class="flex items-center gap-4 text-[#12132DCC] pt-6 text-xl pb-4">
