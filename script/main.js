@@ -32,7 +32,7 @@ const displayCards = async() => {
             post.innerHTML = `
             <div class="flex flex-col gap-8 px-7 bg-[#F3F3F5] rounded-lg shadow md:flex-row min-h-[260px] max-w-[820px] ">
             <div class=" pt-10 ">
-            <img class=" w-[72px] h-[72px] rounded-full" src="${element.image}" alt="">
+            <img class="h-14 w-16 rounded-full" src="${element.image}" alt="">
             </div>
         <div class="flex flex-col justify-between w-full p-4 leading-normal">
             <div class="flex items-center gap-4 text-[#12132DCC] pt-6 text-xl pb-4">
@@ -79,6 +79,9 @@ const displayCards = async() => {
     })
 }
 
+displayCards()
+
+// display read item 
 
 const displayReadItem = (element) => {
     const read = document.createElement('div')
@@ -100,8 +103,58 @@ const displayReadItem = (element) => {
     count++
     readCount.innerText = count
 }
-displayCards()
 
 
+// get latest post 
 
-// document.getElementById('markAsRead').addEventListener('click',displayReadItem)
+const getLatestPost = async () => {
+
+    const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+
+    const data = await response.json()
+
+    return data
+}
+
+
+const displayLatestPost = async () => {
+
+    const data = await getLatestPost()
+
+    data.forEach(element => {
+        console.log(element);
+        const latestPost = document.createElement('div');
+        latestPost.innerHTML = `
+        <div class="w-full max-w-sm bg-white rounded-lg shadow p-6 h-[530px]">
+                            <div class="bg-[#12132D0D] rounded-[20px] mb-4">
+                                <img class="p-8 rounded-t-lg" src="${element.cover_image}" alt="product image" />
+                            </div>
+                            <div class=" pb-5">
+                                <div>
+                                    <div class="flex gap-2">
+                                        <img src="assets/images/date.svg" alt="" class="">
+                                        <p class="text-[#12132D99] text-lg">${element.author.posted_date}</p>
+                                    </div>
+                                    <h5 class="text-xl font-semibold tracking-tight text-[#12132D] mt-4">${element.title}</h5>
+                                </div>
+                                
+                                <p class="text-xs font-bold text-[#12132D99] my-4">${element.description}</p>
+                                <div class="flex gap-5 items-center">
+                                    <div >
+                                        <img class="w-10 h-10 rounded-full" src="${element.profile_image}" alt="">
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[#12132D] font-semibold">${element.author.name}</h2>
+                                        <p class="text-[#12132D99] font-medium">${element.author.designation}</p>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+        `
+
+        latestPostContainer.appendChild(latestPost)
+    });
+}
+
+displayLatestPost()
