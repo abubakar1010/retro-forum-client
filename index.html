@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
 </head>
-<body class="font-mulish container mx-auto">
+<body class="font-mulish">
     
     <!-- navigation bar start here -->
 
@@ -62,13 +62,14 @@
         </nav>
 
     <!-- navigation bar end here -->
+
     <!-- header start here -->
 
     <header class="my-16 container mx-auto">
 
 
-    <section class="bg-[#12132D] min-h-[550px] bg-[url('assets/images/bgbanner.png')]  bg-no-repeat bg-cover rounded-[32px]">
-        <section class="flex px-28 items-center gap-28">
+    <section class="bg-[#12132D] min-h-[550px] bg-[url('assets/images/bgbanner.png')]  bg-no-repeat bg-cover rounded-[32px] py-12">
+        <section class="flex flex-col lg:flex-row lg:px-28 items-center lg:gap-28 gap-6">
             <div class="py-8 px-4 mx-auto text-center lg:py-16 z-10 relative ">
                 <div>
                     <h2 class="tracking-wide mb-7 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl ">Welcome to the</h2>
@@ -84,7 +85,7 @@
                     </div>
                 </section>
             </div>
-            <div class="flex items-center gap-14 justify-center bg-white rounded-[32px] w-[478px] h-[288px] px-12">
+            <div class="flex items-center gap-14 justify-center bg-white rounded-[32px] lg:w-[478px] h-[288px] lg:px-12 px-6 w-3/4">
                 <div class="space-y-4">
                     <h4 class="text-2xl font-medium text-[#12132DCC]">Registered Users</h4>
                     <h4 class="text-2xl font-medium text-[#12132DCC]">Topics</h4>
@@ -107,7 +108,7 @@
     <!-- header end here -->
     <!-- main start here -->
 
-    <main>
+    <main class="container mx-auto">
 
         <!-- discuss section start here  -->
         <section class=" mb-6">
@@ -127,7 +128,7 @@
 
         </div>
 
-        <div class="w-[529px] bg-[#12132D0D] h-fit p-6 rounded-[25px]">
+        <div class=" lg:w-[529px] bg-[#12132D0D] h-fit p-6 rounded-[25px]">
             <div class="flex justify-between">
                 <h2 class="text-[#12132D] text-xl font-medium">Title</h2>
                 <div class="flex gap-3">
@@ -186,7 +187,6 @@
 
                 <!-- latest post container start here -->
 
-
             </section>
             <!-- latest post section end here  -->
 
@@ -196,11 +196,18 @@
 
     <!-- footer start here -->
 
-    <footer>
+    <footer class="bg-gradient-to-r from-[#12132D0D] to-[#12132D0D] min-h-[400px] text-center flex  flex-col items-center py-28">
 
-        
-    </footer>
 
+        <div class="  flex flex-col items-center">
+            <h2 class="font-black text-2xl">ReTro</h2>
+        <p class="text-[#12132DB2] mt-8">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC</p>
+        <img class="mt-8" src="assets/images/Social.svg" alt="">
+        </div>
+        <div class="border-t-2 border-[#30325E1A] border-dashed mt-9 w-full lg:w-[1280px] mx-auto"></div>
+
+        <p class="pt-24">&copy; 2017, All Rights Reserved.</p>
+    </footer> 
     <!-- footer end here -->
 
     <!-- script link here  -->
